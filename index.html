@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form to Google Sheet</title>
+</head>
+<body>
+
+<h2>Contact Form</h2>
+
+<form id="myForm">
+  Name: <br>
+  <input type="text" name="name" required><br><br>
+
+  Email: <br>
+  <input type="email" name="email" required><br><br>
+
+  Message: <br>
+  <textarea name="message" required></textarea><br><br>
+
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbxVSSck7Nf8wsmjPwevV8_2LE-ohPgVxCtquAcuLHNVVWEDSsJ3Lkt6taL1id1nc_X7YQ/exec";
+
+  const form = document.getElementById("myForm");
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+
+    fetch(scriptURL, {
+      method: "POST",
+      body: new FormData(form)
+    })
+    .then(response => alert("Data submitted successfully!"))
+    .catch(error => alert("Error!"));
+  });
+</script>
+
+</body>
+</html>
+
+
