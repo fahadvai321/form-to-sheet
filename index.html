@@ -37,7 +37,19 @@ password: <br>
     .catch(error => alert("Error!"));
   });
 </script>
+<!--function doPost(e) {
+  var sheet = SpreadsheetApp.openById("1T1EOnHvyXxf0mbkGP5PIJaJ5udTOIiH3h8kT4d5J5S0").getActiveSheet();
 
+  var name = e.parameter.name;
+  var email = e.parameter.email;
+  var message = e.parameter.message;
+  var password = e.parameter.password;
+
+  sheet.appendRow([name, email, message,password, new Date()]);
+
+  return ContentService.createTextOutput("Success")
+    .setMimeType(ContentService.MimeType.TEXT);
+}-->
 </body>
 </html>
 
